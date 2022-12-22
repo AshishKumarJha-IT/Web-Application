@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Silder</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        .Silder{
+            height: 100vh;
+        }       
+        .slide{
+            display: none;
+            animation: fade 0.5s ease-out;
+        }
+        @keyframes fade{
+            0%{
+                opacity: 0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+        img{
+            width: 100%;
+            height: 100vh;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            font-size: 3rem;
+            padding: 1rem;
+            border-radius: 4px;
+            opacity: 0;
+        }
+        .btn:hover{
+            background-color: lightgray;
+            color: black;
+            opacity: 1;
+        }
+        .prev{
+            left: 2rem;
+        }
+        .next{
+            right: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="Silder">
+        <div class="slide">
+            <img style="display: block;" class="images" src="https://media.istockphoto.com/id/1330967899/photo/young-woman-with-credit-card-and-laptop.jpg?s=612x612&w=is&k=20&c=ZvAKpfUaEtm5ajD3BiCiyzg48VdYlGEpkonnv7M6Ov4=" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img class="images" src="https://media.istockphoto.com/id/1393890859/photo/happy-couple-at-home-paying-bills-online.jpg?s=1024x1024&w=is&k=20&c=s3heCghc2R6A1tg81b9ia6N_XaNjftDa-xDlIm-oy84=" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img class="images" src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="Image 1">
+        </div>
+        <button class="prev btn"><</button>
+        <button class="next btn">></button>
+    </div>
+</body>
+<script>
+    let currSilde = 0;
+    let slides = document.querySelectorAll(".slide");
+    let nextBtn = document.querySelector(".next");
+    let prevBtn = document.querySelector(".prev");
+
+    nextBtn.addEventListener("click", next)
+    
+    function next(){
+        let nextSlid = (currSilde + 1)%slides.length;
+        slides[currSilde].style.display = "none";
+        slides[nextSlid].style.display = "block";
+        currSilde = nextSlid;
+    }
+
+    prevBtn.addEventListener("click", function(){
+        let prevSlid = currSilde == 0 ? slides.length - 1 : currSilde - 1;
+        slides[currSilde].style.display = "none";
+        slides[prevSlid].style.display = "block";
+        currSilde = prevSlid;
+    })
+
+    setInterval(next, 2000);
+</script>
+</html>
