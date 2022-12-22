@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const emailValidator = require('email-validator');
 const bcrypt = require('bcrypt');
+import {db_Link} from './secrete'
 mongoose.set('strictQuery', true);
 const app = express();
 
@@ -57,7 +58,7 @@ async function getUser(req, res){
 //     });
 // }
 
-const db_Link = 'mongodb+srv://admin:RQfkfEzk5KpW5WSI@cluster0.smort7y.mongodb.net/?retryWrites=true&w=majority';
+
 mongoose.connect(db_Link)
 .then(function(db){
     // console.log(db);

@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+import {db_Link} from './secrete'
 const app = express();
 
 // let user = [
@@ -116,8 +117,6 @@ async function postSignup(req, res){
     });
 }
 
-//pw RQfkfEzk5KpW5WSI
-const db_Link = 'mongodb+srv://admin:RQfkfEzk5KpW5WSI@cluster0.smort7y.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(db_Link)
 .then(function(db){
@@ -151,10 +150,10 @@ const userSchema = mongoose.Schema({
 const userMOdel = mongoose.model('userMOdel', userSchema);
 // (async function createUser(){
 //     let user = {
-//         name:"Ashish Kumar Jha",
-//         email:'akjha3387@gmail.com',
-//         password:'12345678',
-//         confirmPassword:'12345678'
+//         name:"Ashish",
+//         email:'email@gmail.com',
+//         password:'1234754',
+//         confirmPassword:'12348'
 //     };
 //     let data = await userMOdel.create(user);
 //     console.log(data);

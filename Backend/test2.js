@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+import {db_Link} from './secrete'
 mongoose.set('strictQuery', true);
 
 const app = express();
@@ -56,7 +57,7 @@ async function postUser(req, res){     //doubt
     });
 }
 
-const db_Link = 'mongodb+srv://admin:RQfkfEzk5KpW5WSI@cluster0.smort7y.mongodb.net/?retryWrites=true&w=majority';
+
 mongoose.connect(db_Link)
 .then(function(db){
     // console.log(db);

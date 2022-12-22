@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+import {db_Link} from './secrete'
 mongoose.set('strictQuery', true);
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -37,10 +38,6 @@ function getCookies(req,res){
     });
 
 }
-
-
-//pw RQfkfEzk5KpW5WSI
-const db_Link = 'mongodb+srv://admin:RQfkfEzk5KpW5WSI@cluster0.smort7y.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(db_Link)
 .then(function(db){
